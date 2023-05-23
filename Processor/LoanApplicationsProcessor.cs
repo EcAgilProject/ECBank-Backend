@@ -1,7 +1,8 @@
-﻿using ECBank.Constans;
+﻿
+using ECBank.Constants;
 using ECBank.Models;
 
-namespace ECBank.Proseccor;
+namespace ECBank.Processor;
 
 public  class LoanApplicationsProcessor
     {
@@ -20,8 +21,8 @@ public  class LoanApplicationsProcessor
         }
 
         if(application.EmploymentType == EmploymentType.Student &&
-                                       application.Children > 1 ||
-                                       application.ResidenceType == ResidenceType.Tenancy)
+                                       (application.Children > 1 ||
+                                       application.ResidenceType == ResidenceType.Tenancy))
         {
             return LoanStatus.NotApproved;
         }
@@ -32,8 +33,8 @@ public  class LoanApplicationsProcessor
         }
 
         if (application.EmploymentType == EmploymentType.PartTime &&
-                                         application.Children > 2 ||
-                                         application.ResidenceType == ResidenceType.Tenancy)
+                                         (application.Children > 2 ||
+                                         application.ResidenceType == ResidenceType.Tenancy))
         {
             return LoanStatus.NotApproved;
         }

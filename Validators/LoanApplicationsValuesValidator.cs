@@ -1,14 +1,9 @@
 ﻿using ECBank.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ECBank.Validators;
 
- public class LoanApplicationsValuesValidator
+public class LoanApplicationsValuesValidator
     {
     public bool IsAmountInRange(LoanApplication application)
     {
@@ -46,9 +41,14 @@ namespace ECBank.Validators;
         
         string pattern = @"^\d{8}-\d{4}$";
         Regex regex = new Regex(pattern);
+        bool validLengthAndType = regex.IsMatch(application.SocialSecurityNumber);
 
-        return regex.IsMatch(application.SocialSecurityNumber);
 
+        int century = int.Parse( application.SocialSecurityNumber.Substring(0, 2));
+        bool validCentury = century == 19 || century == 20;
+
+        return (validLengthAndType&&validCentury);
+        
     }
     public bool IsValidEmail(LoanApplication application)
     {

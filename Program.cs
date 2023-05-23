@@ -1,6 +1,7 @@
-﻿using ECBank.Constans;
+﻿using ECBank.Constants;
 using ECBank.Models;
-using ECBank.Proseccor;
+using ECBank.Processor;
+using ECBank.Validators;
 
 namespace ECBank;
 
@@ -9,20 +10,25 @@ class Program
      static void Main(string[] args)
     {
 
-
-
       LoanApplication loanApplication = new LoanApplication()
       {
-          ResidenceType = ResidenceType.Tenancy,
-          EmploymentType = EmploymentType.Student,
-
+          ResidenceType = ResidenceType.RightOfResidence,
+          EmploymentType = EmploymentType.PartTime,
+          SocialSecurityNumber ="21210101-1234"
       };
 
-      LoanApplicationsProcessor loanApplicationsProcessor1 = new LoanApplicationsProcessor();
+      LoanApplicationsProcessor processor = new LoanApplicationsProcessor();
 
-      LoanStatus loanStatus = loanApplicationsProcessor1.GetLoanStatus(loanApplication);
+      LoanStatus loanStatus = processor.GetLoanStatus(loanApplication);
+      int amount = processor.GetLoanAmount(loanApplication);
 
+      LoanApplicationsValuesValidator validator = new LoanApplicationsValuesValidator();
+
+      bool validSSN = validator.IsValidSocialSecurityNumber(loanApplication);
+
+      Console.WriteLine(validSSN.ToString());
       Console.WriteLine(loanStatus.ToString());
+      Console.WriteLine(amount.ToString());
       Console.ReadKey(true);
     }
 }

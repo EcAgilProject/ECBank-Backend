@@ -1,13 +1,9 @@
-﻿using ECBank.Constans;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ECBank.Constants;
+
 
 namespace ECBank.Models;
 
-   public class LoanApplication
+public class LoanApplication
     {
     public int Amount { get; set; }
     public int PayBackPeriod { get; set; }

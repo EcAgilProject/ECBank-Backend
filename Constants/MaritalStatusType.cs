@@ -1,4 +1,4 @@
-﻿namespace ECBank.Constans
+﻿namespace ECBank.Constants
 {
     public enum MaritalStatusType
     {
