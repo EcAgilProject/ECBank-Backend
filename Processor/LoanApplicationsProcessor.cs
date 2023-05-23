@@ -1,14 +1,9 @@
 ﻿using ECBank.Constans;
 using ECBank.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ECBank.Proseccor;
 
- public  class LoanApplicationsProcessor
+public  class LoanApplicationsProcessor
     {
     public LoanStatus GetLoanStatus(LoanApplication application)
     {
@@ -62,9 +57,9 @@ namespace ECBank.Proseccor;
 
     public int GetLoanAmount(LoanApplication application)
     {
-        LoanApplicationsProcessor proseccor = new LoanApplicationsProcessor();
+        LoanApplicationsProcessor processor = new LoanApplicationsProcessor();
 
-        if (proseccor.GetLoanStatus(application) == LoanStatus.Approved)
+        if (processor.GetLoanStatus(application) == LoanStatus.Approved)
         {
             int amount = 0;
 

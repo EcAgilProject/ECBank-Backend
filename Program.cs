@@ -18,9 +18,9 @@ class Program
 
       };
 
-      LoanApplicationsProcessor loanApplicationsProseccor1 = new LoanApplicationsProcessor();
+      LoanApplicationsProcessor loanApplicationsProcessor1 = new LoanApplicationsProcessor();
 
-      LoanStatus loanStatus = loanApplicationsProseccor1.GetLoanStatus(loanApplication);
+      LoanStatus loanStatus = loanApplicationsProcessor1.GetLoanStatus(loanApplication);
 
       Console.WriteLine(loanStatus.ToString());
       Console.ReadKey(true);

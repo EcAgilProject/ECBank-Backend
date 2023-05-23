@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ECBank.Constans;
 
-namespace ECBank.Constans;
-
-    public enum  EmploymentType
+public enum  EmploymentType
         {
             Permanent,
             Temporary,
